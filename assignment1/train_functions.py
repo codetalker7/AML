@@ -1,6 +1,12 @@
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
 
 def train_model(model, data_matrix, labels):
+    """
+    Fit model on the given data.
+
+    :param data_matrix: Data matrix on which the model is to be fitted.
+    :param labels: Labels of the training data.
+    """
     model.fit(data_matrix, labels)
 
 def evaluate_model(model, data_matrix, labels):

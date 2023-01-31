@@ -1,8 +1,7 @@
-import numpy as np
 import pandas as pd
-import csv
 from textblob import TextBlob
 from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfTransformer
 
 def load_data(file_path, separator='\t'):
     """

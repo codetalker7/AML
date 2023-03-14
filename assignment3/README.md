@@ -1,3 +1,13 @@
+# Running tests
+
+To run the tests, simply do
+
+```shell
+pytest test.py
+```
+
+# The Flask application
+
 To run the flask app, do
 
 ```shell

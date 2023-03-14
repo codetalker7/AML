@@ -3,7 +3,13 @@
 To run the tests, simply do
 
 ```shell
-pytest test.py
+pytest
+```
+
+To generate the coverage report, do
+
+```shell
+pytest --cov > coverage.txt
 ```
 
 # The Flask application

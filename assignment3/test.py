@@ -3,6 +3,10 @@ import mlflow
 import score
 import random
 import string
+import requests
+import subprocess
+import time
+import json
 
 def test_score():
     LogisticRegression = mlflow.sklearn.load_model("../assignment2/mlruns/0/a211eafb22c94b63b49575f2a2f25a28/artifacts/model/")
@@ -37,4 +41,18 @@ def test_score():
     non_spam_text = "No it was cancelled yeah baby! Well that sounds important so i understand my darlin give me a ring later on this fone love Kate x"
     assert score.score(non_spam_text, LogisticRegression, 0.5)[0] == False
 
+def test_flask():
+    flask_app = subprocess.Popen(["python3", "-m", "flask", "--app", "app", "run"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    time.sleep(10)
+
+    # post request for a spam text
+    spam_text = "PRIVATE! Your 2003 Account Statement for 07815296484 shows 800 un-redeemed S.I.M. points. Call 08718738001 Identifier Code 41782 Expires 18/11/04"
+    r = requests.post('http://localhost:5000/score', data={"text": spam_text})
+
+    response = json.loads(r.text)
+
+    assert response["prediction"] == True
+    assert response["propensity"] > 0.5
+
+    flask_app.terminate()
 

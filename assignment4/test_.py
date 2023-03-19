@@ -9,7 +9,7 @@ import time
 import json
 
 def test_score():
-    LogisticRegression = mlflow.sklearn.load_model("/mlruns/0/a211eafb22c94b63b49575f2a2f25a28/artifacts/model/")
+    LogisticRegression = mlflow.sklearn.load_model("mlruns/0/a211eafb22c94b63b49575f2a2f25a28/artifacts/model/")
 
     # generating random input string of length 100
     random_text = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(100))

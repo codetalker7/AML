@@ -3,5 +3,5 @@ mlflow
 numpy
 pandas
 textblob
-scikit-learn
+scikit-learn==1.2.1
 

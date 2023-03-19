@@ -6,7 +6,7 @@ import score
 app = Flask(__name__)
 
 # load the model
-LogisticRegression = mlflow.sklearn.load_model("../assignment2/mlruns/0/a211eafb22c94b63b49575f2a2f25a28/artifacts/model/")
+LogisticRegression = mlflow.sklearn.load_model("mlruns/0/a211eafb22c94b63b49575f2a2f25a28/artifacts/model/")
 
 @app.post('/score')
 def getscore():

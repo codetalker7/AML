@@ -27,3 +27,31 @@ python3 example_post.py
 ```
 
 while the app is running.
+
+# Building Docker image
+
+To build the Docker image, run the following.
+
+```bash
+docker build --tag aml-assignment .
+```
+
+To check the list of built images, you can do
+
+```bash
+docker images
+```
+
+To run the image, do
+
+```bash
+docker run -d -p 5000:5000 aml-assignment
+```
+
+To stop the container, do
+
+```bash
+docker stop <container-id>
+```
+
+where the `<container-id>` can be checked with `docker ps`.

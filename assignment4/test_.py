@@ -56,3 +56,20 @@ def test_flask():
 
     flask_app.terminate()
 
+def test_docker():
+    # run the docker container
+    subprocess.run(["docker", "run", "-d", "-p", "5000:5000", "--name", "aml-assignment", "aml-assignment"])
+    time.sleep(10)
+
+    # post request for a spam text
+    spam_text = "PRIVATE! Your 2003 Account Statement for 07815296484 shows 800 un-redeemed S.I.M. points. Call 08718738001 Identifier Code 41782 Expires 18/11/04"
+    r = requests.post('http://localhost:5000/score', data={"text": spam_text})
+
+    response = json.loads(r.text)
+
+    assert response["prediction"] == True
+    assert response["propensity"] > 0.5
+
+    # close the docker container
+    subprocess.run(["docker", "stop", "aml-assignment"])
+    subprocess.run(["docker", "rm", "aml-assignment"])

@@ -33,7 +33,7 @@ while the app is running.
 To build the Docker image, run the following.
 
 ```bash
-docker build --tag aml-assignment .
+make build
 ```
 
 To check the list of built images, you can do
@@ -45,11 +45,18 @@ docker images
 To run the image, do
 
 ```bash
-docker run -d -p 5000:5000 --name aml-assignment aml-assignment
+make run
 ```
 
 To stop the container, do
 
 ```bash
 docker stop aml-assignment
+docker rm aml-assignment
+```
+
+To start fresh and remove everything, do
+
+```bash
+make clean
 ```

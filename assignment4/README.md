@@ -45,13 +45,11 @@ docker images
 To run the image, do
 
 ```bash
-docker run -d -p 5000:5000 aml-assignment
+docker run -d -p 5000:5000 --name aml-assignment aml-assignment
 ```
 
 To stop the container, do
 
 ```bash
-docker stop <container-id>
+docker stop aml-assignment
 ```
-
-where the `<container-id>` can be checked with `docker ps`.

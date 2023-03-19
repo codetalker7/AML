@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-7.2.2, pluggy-1.0.0
+rootdir: /home/codetalker7/AML/assignment4
+plugins: cov-4.0.0, anyio-3.6.2
+collected 3 items
+
+test_.py ...                                                             [100%]
+
+---------- coverage: platform linux, python 3.8.10-final-0 -----------
+Name                   Stmts   Miss  Cover
+------------------------------------------
+prepare_functions.py      22     10    55%
+score.py                  12      0   100%
+test_.py                  43      0   100%
+------------------------------------------
+TOTAL                     77     10    87%
+
+
+============================== 3 passed in 34.02s ==============================

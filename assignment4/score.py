@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 
 def score(text:str, model, threshold:float) -> tuple:
     # load the vectorizer
-    with open("../assignment2/bow_transformer.pickle", 'rb') as f:
+    with open("bow_transformer.pickle", 'rb') as f:
         bow_transformer = pickle.load(f)
 
     sparse_bow = bow_transformer.transform([text])    
